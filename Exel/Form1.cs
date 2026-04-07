@@ -1,3 +1,7 @@
+using Microsoft.Office.Interop.Excel;
+using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace Exel
 {
     public partial class Form1 : Form
@@ -11,7 +15,7 @@ namespace Exel
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
+            dataGridView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14);
             dataGridView1.ReadOnly = true;
         }
 
@@ -44,7 +48,7 @@ namespace Exel
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-                Otk(openFileDialog.FileName);
+                Otk1(openFileDialog.FileName);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,10 +92,27 @@ namespace Exel
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Exele_Reed exele_Reed = new Exele_Reed(openFileDialog.FileName);
-                numbers.AddRange(exele_Reed.Exel_rid());
+                Exel_Asposs exele_Reed = new Exel_Asposs(openFileDialog.FileName);
+                numbers.AddRange(exele_Reed.Otk());
                 Zapol_Listbox();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Otk1(openFileDialog.FileName);
+            }
+        }
+        void Otk1(string path)
+        {
+            dataGridView1.Columns.Clear();
+            Exel_Asposs exele_Reed = new Exel_Asposs(path);
+            numbers = exele_Reed.Otk();
+            //dataGridView1.DataSource = numbers;
+            Zapol_Listbox();
         }
     }
 }

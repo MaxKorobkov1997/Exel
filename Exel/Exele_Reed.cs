@@ -28,10 +28,6 @@ namespace Exel
                     status_Nas = "Null";
                     probl_Nas = "Null";
                     status_Peredat = "Null";
-                    //for (int j = 1; j <= cols; j++)
-                    //{
-
-                    //write the console
                     if (worksheet.Cells[i, 1].Value != null)
                         data = worksheet.Cells[i, 1].Value.ToString();
                     if (worksheet.Cells[i, 2].Value != null)

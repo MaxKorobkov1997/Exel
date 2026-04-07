@@ -33,6 +33,7 @@
             button1 = new Button();
             button2 = new Button();
             listBox2 = new ListBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -86,9 +87,21 @@
             listBox2.TabIndex = 6;
             listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
+            // button3
+            // 
+            button3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button3.Location = new Point(12, 462);
+            button3.Name = "button3";
+            button3.Size = new Size(331, 97);
+            button3.TabIndex = 7;
+            button3.Text = "Укажите csv документ";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
-            ClientSize = new Size(1407, 470);
+            ClientSize = new Size(1407, 580);
+            Controls.Add(button3);
             Controls.Add(listBox2);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -108,5 +121,6 @@
         private Button button1;
         private Button button2;
         private ListBox listBox2;
+        private Button button3;
     }
 }
